@@ -106,7 +106,35 @@ export async function getInputs(): Promise<LCAInputs> {
 export async function getResults(inputs?: LCAInputs): Promise<LCAResults> {
   if (USE_MOCK_DATA) {
     await new Promise(resolve => setTimeout(resolve, 1200));
-    return mockResults;
+    
+    // Add randomness to results to avoid same values every time
+    const randomizedResults = { ...mockResults };
+    
+    // Add ±10% randomness to emissions
+    const variationFactor = 0.1;
+    randomizedResults.emissions = {
+      ...mockResults.emissions,
+      CO2_kg_total: mockResults.emissions.CO2_kg_total * (1 + (Math.random() - 0.5) * variationFactor),
+      NOx_kg: mockResults.emissions.NOx_kg * (1 + (Math.random() - 0.5) * variationFactor),
+      SO2_kg: mockResults.emissions.SO2_kg * (1 + (Math.random() - 0.5) * variationFactor),
+      CF4_kg: mockResults.emissions.CF4_kg * (1 + (Math.random() - 0.5) * variationFactor),
+      PAH_g: mockResults.emissions.PAH_g * (1 + (Math.random() - 0.5) * variationFactor),
+      NMVOC_kg: mockResults.emissions.NMVOC_kg * (1 + (Math.random() - 0.5) * variationFactor),
+    };
+    
+    // Add randomness to waste values
+    randomizedResults.waste = {
+      SolidWaste_BauxiteResidue_kg: mockResults.waste.SolidWaste_BauxiteResidue_kg * (1 + (Math.random() - 0.5) * variationFactor),
+      AluminaWaste_kg: mockResults.waste.AluminaWaste_kg * (1 + (Math.random() - 0.5) * variationFactor),
+      RedMud_kg: mockResults.waste.RedMud_kg * (1 + (Math.random() - 0.5) * variationFactor),
+    };
+    
+    // Add randomness to energy values
+    randomizedResults.energy = {
+      WasteHeat_MJ: mockResults.energy.WasteHeat_MJ * (1 + (Math.random() - 0.5) * variationFactor),
+    };
+    
+    return randomizedResults;
   }
 
   return apiCall("/results", {

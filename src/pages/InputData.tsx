@@ -261,6 +261,11 @@ export default function InputData() {
                   min="0"
                   value={value}
                   onChange={(e) => updateMaterial(key, e.target.value)}
+                  onFocus={(e) => {
+                    if (e.target.value === '0') {
+                      e.target.select();
+                    }
+                  }}
                   className="bg-background"
                 />
               </div>
@@ -289,6 +294,11 @@ export default function InputData() {
                   min="0"
                   value={value}
                   onChange={(e) => updateEnergy(key, e.target.value)}
+                  onFocus={(e) => {
+                    if (e.target.value === '0') {
+                      e.target.select();
+                    }
+                  }}
                   className="bg-background"
                 />
               </div>
@@ -318,6 +328,11 @@ export default function InputData() {
                   min="0"
                   value={value}
                   onChange={(e) => updateResource(key, e.target.value)}
+                  onFocus={(e) => {
+                    if (e.target.value === '0') {
+                      e.target.select();
+                    }
+                  }}
                   className="bg-background"
                 />
               </div>
