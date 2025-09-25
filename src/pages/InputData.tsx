@@ -35,6 +35,30 @@ export default function InputData() {
       Refractory_kg: 0,
       Steel_kg: 0,
     },
+    dataSources: {
+      materials: {
+        Bauxite_kg: 'user',
+        CausticSoda_kg: 'user',
+        CalcinedLime_kg: 'user',
+        Alumina_kg: 'user',
+        CalcinedCoke_kg: 'user',
+        PetrolCoke_kg: 'user',
+        Anode_kg: 'user',
+        AlF3_kg: 'user',
+        Scrap_kg: 'user',
+      },
+      energy: {
+        Electricity_MJ_total: 'user',
+        Alumina_MJ: 'user',
+        Anode_MJ: 'user',
+        Electrolysis_MJ: 'user',
+      },
+      resources: {
+        FreshWater_m3: 'user',
+        Refractory_kg: 'user',
+        Steel_kg: 'user',
+      },
+    },
   });
 
   const [loading, setLoading] = useState(false);
@@ -110,6 +134,13 @@ export default function InputData() {
         ...prev.materials,
         [key]: parseFloat(value) || 0,
       },
+      dataSources: {
+        ...prev.dataSources,
+        materials: {
+          ...prev.dataSources?.materials,
+          [key]: 'user',
+        },
+      },
     }));
   };
 
@@ -119,6 +150,13 @@ export default function InputData() {
       energy: {
         ...prev.energy,
         [key]: parseFloat(value) || 0,
+      },
+      dataSources: {
+        ...prev.dataSources,
+        energy: {
+          ...prev.dataSources?.energy,
+          [key]: 'user',
+        },
       },
     }));
   };
@@ -130,6 +168,13 @@ export default function InputData() {
         ...prev.resources,
         [key]: parseFloat(value) || 0,
       },
+      dataSources: {
+        ...prev.dataSources,
+        resources: {
+          ...prev.dataSources?.resources,
+          [key]: 'user',
+        },
+      },
     }));
   };
 
@@ -139,6 +184,11 @@ export default function InputData() {
       materials: Object.keys(prev.materials).reduce((acc, key) => ({ ...acc, [key]: 0 }), {}),
       energy: Object.keys(prev.energy).reduce((acc, key) => ({ ...acc, [key]: 0 }), {}),
       resources: Object.keys(prev.resources).reduce((acc, key) => ({ ...acc, [key]: 0 }), {}),
+      dataSources: {
+        materials: Object.keys(prev.materials).reduce((acc, key) => ({ ...acc, [key]: 'user' as const }), {}),
+        energy: Object.keys(prev.energy).reduce((acc, key) => ({ ...acc, [key]: 'user' as const }), {}),
+        resources: Object.keys(prev.resources).reduce((acc, key) => ({ ...acc, [key]: 'user' as const }), {}),
+      },
     }));
   };
 

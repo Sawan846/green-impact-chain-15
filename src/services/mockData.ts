@@ -25,6 +25,30 @@ export const mockInputs = {
     Refractory_kg: 120,
     Steel_kg: 280,
   },
+  dataSources: {
+    materials: {
+      Bauxite_kg: 'user' as const,
+      CausticSoda_kg: 'user' as const,
+      CalcinedLime_kg: 'user' as const,
+      Alumina_kg: 'user' as const,
+      CalcinedCoke_kg: 'user' as const,
+      PetrolCoke_kg: 'user' as const,
+      Anode_kg: 'user' as const,
+      AlF3_kg: 'user' as const,
+      Scrap_kg: 'user' as const,
+    },
+    energy: {
+      Electricity_MJ_total: 'user' as const,
+      Alumina_MJ: 'user' as const,
+      Anode_MJ: 'user' as const,
+      Electrolysis_MJ: 'user' as const,
+    },
+    resources: {
+      FreshWater_m3: 'user' as const,
+      Refractory_kg: 'user' as const,
+      Steel_kg: 'user' as const,
+    },
+  },
 };
 
 export const mockResults = {
