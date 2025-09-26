@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import InputData from "./pages/InputData";
 import Results from "./pages/Results";
+import LCCInputData from "./pages/LCCInputData";
+import LCCResults from "./pages/LCCResults";
 import Scenarios from "./pages/Scenarios";
 import Blockchain from "./pages/Blockchain";
 import NotFound from "./pages/NotFound";
@@ -22,6 +24,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<InputData />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/lcc-input" element={<LCCInputData />} />
+            <Route path="/lcc-results" element={<LCCResults />} />
             <Route path="/scenarios" element={<Scenarios />} />
             <Route path="/blockchain" element={<Blockchain />} />
             {/* Placeholder routes for secondary nav */}

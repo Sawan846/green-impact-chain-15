@@ -8,6 +8,8 @@ import {
   Leaf,
   Settings,
   HelpCircle,
+  DollarSign,
+  Calculator,
 } from "lucide-react";
 
 import {
@@ -24,16 +26,28 @@ import {
 
 const mainNavItems = [
   {
-    title: "Input Data",
+    title: "LCA Input Data",
     url: "/",
     icon: Database,
     description: "Enter LCA parameters",
   },
   {
-    title: "Results",
+    title: "LCA Results",
     url: "/results",
     icon: BarChart3,
     description: "View emissions analysis",
+  },
+  {
+    title: "LCC Input Data", 
+    url: "/lcc-input",
+    icon: DollarSign,
+    description: "Enter cost parameters",
+  },
+  {
+    title: "LCC Results",
+    url: "/lcc-results",
+    icon: Calculator,
+    description: "View cost analysis",
   },
   {
     title: "Scenarios",

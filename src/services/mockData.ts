@@ -191,3 +191,106 @@ export const mockEnvironmentalMetrics = {
     industry_average: 65,
   },
 };
+
+// Life Cycle Costing (LCC) Mock Data
+export const mockLCCInputs = {
+  state: "Queensland",
+  energyPrice: 3.8, // USD/kWh
+  mineWorkerWage: 22.5, // USD/hour
+  skilledLaborWage: 35.0, // USD/hour
+  excavatorCost: 450000, // USD
+  haulTruckCost: 320000, // USD
+  crusherCost: 180000, // USD
+  coalCost: 85, // USD/tonne
+  ironOreCost: 120, // USD/tonne
+  aluminumOreCost: 240, // USD/tonne
+  limestoneCost: 45, // USD/tonne
+  bauxiteCost: 180, // USD/tonne
+  marbleCost: 75, // USD/tonne
+  dieselTransportCost: 1.2, // USD/km/tonne
+  railTransportCost: 0.8, // USD/km/tonne
+  environmentalPenalty: 25000, // USD
+  regulatoryComplianceCost: 45000, // USD
+  mineWorkersCount: 15,
+  skilledWorkersCount: 8,
+  excavatorsCount: 3,
+  haulTrucksCount: 5,
+  crushersCount: 2,
+  dataSources: {
+    state: 'user' as const,
+    energyPrice: 'ai' as const,
+    mineWorkerWage: 'user' as const,
+    skilledLaborWage: 'ai' as const,
+    excavatorCost: 'user' as const,
+    haulTruckCost: 'ai' as const,
+    crusherCost: 'user' as const,
+    coalCost: 'ai' as const,
+    ironOreCost: 'user' as const,
+    aluminumOreCost: 'ai' as const,
+    limestoneCost: 'user' as const,
+    bauxiteCost: 'ai' as const,
+    marbleCost: 'user' as const,
+    dieselTransportCost: 'ai' as const,
+    railTransportCost: 'user' as const,
+    environmentalPenalty: 'ai' as const,
+    regulatoryComplianceCost: 'user' as const,
+    mineWorkersCount: 'user' as const,
+    skilledWorkersCount: 'ai' as const,
+    excavatorsCount: 'user' as const,
+    haulTrucksCount: 'ai' as const,
+    crushersCount: 'user' as const,
+  },
+};
+
+export const mockLCCResults = {
+  totalLaborCost: 892000, // USD
+  totalEquipmentCost: 1450000, // USD
+  totalMaterialCost: 2100000, // USD
+  totalEnvironmentalRegulatoryCost: 70000, // USD
+  totalOperatingCost: 4512000, // USD
+  totalCostVirgin: 5000000, // USD
+  totalCostRecycled: 4200000, // USD
+  npvVirgin: 2000000, // USD
+  npvRecycled: 2500000, // USD
+  roiVirgin: 10.5, // %
+  roiRecycled: 15.2, // %
+  paybackPeriodVirgin: 7.2, // years
+  paybackPeriodRecycled: 5.1, // years
+  npvDifference: 500000, // USD
+  roiDifference: 4.7, // %
+  paybackDifference: -2.1, // years (negative means recycled is better)
+  chartData: {
+    costBreakdown: [
+      { name: "Labor", value: 892000, color: "#10b981" },
+      { name: "Equipment", value: 1450000, color: "#3b82f6" },
+      { name: "Materials", value: 2100000, color: "#f59e0b" },
+      { name: "Environmental", value: 70000, color: "#ef4444" },
+    ],
+    virginVsRecycled: [
+      { category: "Total Cost", virgin: 5000000, recycled: 4200000 },
+      { category: "NPV", virgin: 2000000, recycled: 2500000 },
+      { category: "ROI (%)", virgin: 10.5, recycled: 15.2 },
+    ],
+    monthlyTrends: [
+      { month: "Jan", totalCost: 4800000, npv: 1950000, roi: 10.2 },
+      { month: "Feb", totalCost: 4900000, npv: 2000000, roi: 10.3 },
+      { month: "Mar", totalCost: 5000000, npv: 2000000, roi: 10.5 },
+      { month: "Apr", totalCost: 4950000, npv: 2100000, roi: 10.8 },
+      { month: "May", totalCost: 5100000, npv: 2150000, roi: 11.0 },
+      { month: "Jun", totalCost: 5000000, npv: 2000000, roi: 10.5 },
+    ],
+  },
+};
+
+export const mockLCCPredictions = {
+  energyPrice: 3.8,
+  skilledLaborWage: 35.0,
+  haulTruckCost: 320000,
+  coalCost: 85,
+  aluminumOreCost: 240,
+  bauxiteCost: 180,
+  dieselTransportCost: 1.2,
+  environmentalPenalty: 25000,
+  skilledWorkersCount: 8,
+  haulTrucksCount: 5,
+};
